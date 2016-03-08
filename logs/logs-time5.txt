@@ -1,0 +1,455 @@
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7541 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+319, 4.761904761904762, 3.655845333 sec
+
+Error results for SA
+---------------------------
+1263, 4.761904761904762, 13.025844513 sec
+
+Error results for GA
+---------------------------
+19, 3.463203463203463, 9.687446154 sec
+
+Results for RHC:
+Correctly classified 436.0 instances.
+Incorrectly classified 26.0 instances.
+Percent correctly classified: 94.372%
+Training time: 3.656 seconds
+Testing time: 0.006 seconds
+
+Results for SA:
+Correctly classified 440.0 instances.
+Incorrectly classified 22.0 instances.
+Percent correctly classified: 95.238%
+Training time: 13.026 seconds
+Testing time: 0.006 seconds
+
+Results for GA:
+Correctly classified 442.0 instances.
+Incorrectly classified 20.0 instances.
+Percent correctly classified: 95.671%
+Training time: 9.688 seconds
+Testing time: 0.005 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7542 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+232, 3.896103896103896, 2.698437334 sec
+
+Error results for SA
+---------------------------
+1102, 4.761904761904762, 11.390268718 sec
+
+Error results for GA
+---------------------------
+14, 3.896103896103896, 7.383132307 sec
+
+Results for RHC:
+Correctly classified 436.0 instances.
+Incorrectly classified 26.0 instances.
+Percent correctly classified: 94.372%
+Training time: 2.699 seconds
+Testing time: 0.007 seconds
+
+Results for SA:
+Correctly classified 436.0 instances.
+Incorrectly classified 26.0 instances.
+Percent correctly classified: 94.372%
+Training time: 11.390 seconds
+Testing time: 0.006 seconds
+
+Results for GA:
+Correctly classified 437.0 instances.
+Incorrectly classified 25.0 instances.
+Percent correctly classified: 94.589%
+Training time: 7.383 seconds
+Testing time: 0.007 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7543 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+317, 4.978354978354979, 3.695652923 sec
+
+Error results for SA
+---------------------------
+1421, 4.329004329004329, 14.706537846 sec
+
+Error results for GA
+---------------------------
+20, 4.761904761904762, 10.381797744 sec
+
+Results for RHC:
+Correctly classified 439.0 instances.
+Incorrectly classified 23.0 instances.
+Percent correctly classified: 95.022%
+Training time: 3.696 seconds
+Testing time: 0.006 seconds
+
+Results for SA:
+Correctly classified 442.0 instances.
+Incorrectly classified 20.0 instances.
+Percent correctly classified: 95.671%
+Training time: 14.707 seconds
+Testing time: 0.005 seconds
+
+Results for GA:
+Correctly classified 439.0 instances.
+Incorrectly classified 23.0 instances.
+Percent correctly classified: 95.022%
+Training time: 10.382 seconds
+Testing time: 0.005 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7544 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+463, 4.978354978354979, 5.115149128 sec
+
+Error results for SA
+---------------------------
+1719, 4.978354978354979, 17.624313436 sec
+
+Error results for GA
+---------------------------
+2, 4.761904761904762, 1.46532759 sec
+
+Results for RHC:
+Correctly classified 438.0 instances.
+Incorrectly classified 24.0 instances.
+Percent correctly classified: 94.805%
+Training time: 5.116 seconds
+Testing time: 0.007 seconds
+
+Results for SA:
+Correctly classified 439.0 instances.
+Incorrectly classified 23.0 instances.
+Percent correctly classified: 95.022%
+Training time: 17.625 seconds
+Testing time: 0.005 seconds
+
+Results for GA:
+Correctly classified 435.0 instances.
+Incorrectly classified 27.0 instances.
+Percent correctly classified: 94.156%
+Training time: 1.465 seconds
+Testing time: 0.005 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7542 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+321, 4.761904761904762, 3.810221949 sec
+
+Error results for SA
+---------------------------
+1364, 4.978354978354979, 14.118358154 sec
+
+Error results for GA
+---------------------------
+7, 4.761904761904762, 3.927353436 sec
+
+Results for RHC:
+Correctly classified 440.0 instances.
+Incorrectly classified 22.0 instances.
+Percent correctly classified: 95.238%
+Training time: 3.811 seconds
+Testing time: 0.006 seconds
+
+Results for SA:
+Correctly classified 431.0 instances.
+Incorrectly classified 31.0 instances.
+Percent correctly classified: 93.290%
+Training time: 14.119 seconds
+Testing time: 0.006 seconds
+
+Results for GA:
+Correctly classified 431.0 instances.
+Incorrectly classified 31.0 instances.
+Percent correctly classified: 93.290%
+Training time: 3.927 seconds
+Testing time: 0.005 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7543 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+451, 4.978354978354979, 5.076001231 sec
+
+Error results for SA
+---------------------------
+1108, 4.978354978354979, 11.330036103 sec
+
+Error results for GA
+---------------------------
+14, 4.761904761904762, 7.354043488 sec
+
+Results for RHC:
+Correctly classified 435.0 instances.
+Incorrectly classified 27.0 instances.
+Percent correctly classified: 94.156%
+Training time: 5.077 seconds
+Testing time: 0.007 seconds
+
+Results for SA:
+Correctly classified 439.0 instances.
+Incorrectly classified 23.0 instances.
+Percent correctly classified: 95.022%
+Training time: 11.330 seconds
+Testing time: 0.005 seconds
+
+Results for GA:
+Correctly classified 435.0 instances.
+Incorrectly classified 27.0 instances.
+Percent correctly classified: 94.156%
+Training time: 7.354 seconds
+Testing time: 0.007 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7544 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+612, 4.761904761904762, 6.747320205 sec
+
+Error results for SA
+---------------------------
+895, 4.761904761904762, 9.296713026 sec
+
+Error results for GA
+---------------------------
+20, 4.112554112554113, 10.561665231 sec
+
+Results for RHC:
+Correctly classified 440.0 instances.
+Incorrectly classified 22.0 instances.
+Percent correctly classified: 95.238%
+Training time: 6.748 seconds
+Testing time: 0.008 seconds
+
+Results for SA:
+Correctly classified 436.0 instances.
+Incorrectly classified 26.0 instances.
+Percent correctly classified: 94.372%
+Training time: 9.297 seconds
+Testing time: 0.007 seconds
+
+Results for GA:
+Correctly classified 444.0 instances.
+Incorrectly classified 18.0 instances.
+Percent correctly classified: 96.104%
+Training time: 10.562 seconds
+Testing time: 0.006 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7542 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+218, 4.978354978354979, 2.756969026 sec
+
+Error results for SA
+---------------------------
+776, 3.896103896103896, 7.929350564 sec
+
+Error results for GA
+---------------------------
+41, 4.545454545454546, 20.896232205 sec
+
+Results for RHC:
+Correctly classified 439.0 instances.
+Incorrectly classified 23.0 instances.
+Percent correctly classified: 95.022%
+Training time: 2.758 seconds
+Testing time: 0.005 seconds
+
+Results for SA:
+Correctly classified 431.0 instances.
+Incorrectly classified 31.0 instances.
+Percent correctly classified: 93.290%
+Training time: 7.930 seconds
+Testing time: 0.005 seconds
+
+Results for GA:
+Correctly classified 448.0 instances.
+Incorrectly classified 14.0 instances.
+Percent correctly classified: 96.970%
+Training time: 20.896 seconds
+Testing time: 0.005 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7544 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+242, 4.978354978354979, 3.29500759 sec
+
+Error results for SA
+---------------------------
+1194, 4.761904761904762, 14.06937559 sec
+
+Error results for GA
+---------------------------
+16, 4.978354978354979, 10.225951589 sec
+
+Results for RHC:
+Correctly classified 439.0 instances.
+Incorrectly classified 23.0 instances.
+Percent correctly classified: 95.022%
+Training time: 3.296 seconds
+Testing time: 0.009 seconds
+
+Results for SA:
+Correctly classified 440.0 instances.
+Incorrectly classified 22.0 instances.
+Percent correctly classified: 95.238%
+Training time: 14.070 seconds
+Testing time: 0.007 seconds
+
+Results for GA:
+Correctly classified 442.0 instances.
+Incorrectly classified 20.0 instances.
+Percent correctly classified: 95.671%
+Training time: 10.226 seconds
+Testing time: 0.009 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7542 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+430, 4.761904761904762, 5.325335795 sec
+
+Error results for SA
+---------------------------
+1031, 4.978354978354979, 11.278051282 sec
+
+Error results for GA
+---------------------------
+7, 3.67965367965368, 4.439241846 sec
+
+Results for RHC:
+Correctly classified 440.0 instances.
+Incorrectly classified 22.0 instances.
+Percent correctly classified: 95.238%
+Training time: 5.326 seconds
+Testing time: 0.008 seconds
+
+Results for SA:
+Correctly classified 439.0 instances.
+Incorrectly classified 23.0 instances.
+Percent correctly classified: 95.022%
+Training time: 11.278 seconds
+Testing time: 0.006 seconds
+
+Results for GA:
+Correctly classified 439.0 instances.
+Incorrectly classified 23.0 instances.
+Percent correctly classified: 95.022%
+Training time: 4.439 seconds
+Testing time: 0.005 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7545 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+222, 3.896103896103896, 2.64487959 sec
+
+Error results for SA
+---------------------------
+835, 4.329004329004329, 8.759125744 sec
+
+Error results for GA
+---------------------------
+8, 4.761904761904762, 4.790738872 sec
+
+Results for RHC:
+Correctly classified 444.0 instances.
+Incorrectly classified 18.0 instances.
+Percent correctly classified: 96.104%
+Training time: 2.646 seconds
+Testing time: 0.008 seconds
+
+Results for SA:
+Correctly classified 436.0 instances.
+Incorrectly classified 26.0 instances.
+Percent correctly classified: 94.372%
+Training time: 8.759 seconds
+Testing time: 0.008 seconds
+
+Results for GA:
+Correctly classified 440.0 instances.
+Incorrectly classified 22.0 instances.
+Percent correctly classified: 95.238%
+Training time: 4.791 seconds
+Testing time: 0.009 seconds
+
+
+Process finished with exit code 0
+
+"C:\Program Files\Java\jdk1.8.0_66\bin\java" -Didea.launcher.port=7542 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_66\jre\lib\rt.jar;C:\Users\Jessica\Documents\randomized-optimization\out\production\randomized-optimization;C:\Users\Jessica\Documents\randomized-optimization\res\ABAGAIL.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain VowelTest
+
+Error results for RHC
+---------------------------
+404, 4.978354978354979, 4.679672616 sec
+
+Error results for SA
+---------------------------
+1127, 4.545454545454546, 11.826107077 sec
+
+Error results for GA
+---------------------------
+37, 4.978354978354979, 18.766395487 sec
+
+Results for RHC:
+Correctly classified 435.0 instances.
+Incorrectly classified 27.0 instances.
+Percent correctly classified: 94.156%
+Training time: 4.680 seconds
+Testing time: 0.006 seconds
+
+Results for SA:
+Correctly classified 441.0 instances.
+Incorrectly classified 21.0 instances.
+Percent correctly classified: 95.455%
+Training time: 11.826 seconds
+Testing time: 0.005 seconds
+
+Results for GA:
+Correctly classified 445.0 instances.
+Incorrectly classified 17.0 instances.
+Percent correctly classified: 96.320%
+Training time: 18.767 seconds
+Testing time: 0.005 seconds
+
+
+Process finished with exit code 0
