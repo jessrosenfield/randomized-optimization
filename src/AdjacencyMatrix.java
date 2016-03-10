@@ -1,22 +1,46 @@
+import java.util.Iterator;
 
 public class AdjacencyMatrix {
-    protected int[][] matrix;
+    private boolean[][] matrix;
 
-    public AdjacencyMatrix(int numEdges) {
-        matrix = new int[numEdges][numEdges];
+    public AdjacencyMatrix(int vertexCount) {
+        matrix = new boolean[vertexCount][vertexCount];
     }
 
     public void addEdge(int i, int j) {
-        matrix[i][j] = 1;
-        matrix[j][i] = 1;
+        addEdge(i, j, 1);
+    }
+
+    public void addEdge(int i, int j) {
+        matrix[i][j] = true;
+        matrix[j][i] = true;
     }
 
     public void removeEdge(int i, int j) {
-        matrix[i][j] = 0;
-        matrix[j][i] = 0;
+        matrix[i][j] = false;
+        matrix[j][i] = false;
     }
 
-    public boolean hasEdge(int i, int j) {
-        return matrix[i][j] == 1;
+    public int rowCount() {
+        return matrix.length;
+    }
+
+    public Iterator<Edge> getEdgeIterator() {
+        return new Iterator<Edge>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public Edge next() {
+
+            }
+        }
+    }
+
+    public static class Edge {
+        public int v1;
+        public int v2;
     }
 }
