@@ -5,11 +5,12 @@ import java.util.List;
 public class PrettyGraph {
 
     protected AdjacencyMatrix matrix;
-    protected List<AdjacencyMatrix.Edge> edges;
+    protected AdjacencyMatrix.Edge[] edges;
+    protected int numVertices;
 
     public PrettyGraph() {
-        int numEdges = 24;
-        matrix = new AdjacencyMatrix(numEdges);
+        numVertices = 24;
+        matrix = new AdjacencyMatrix(numVertices);
         matrix.addEdge(0, 1);   //A, B
         matrix.addEdge(1, 2);   //B, C
         matrix.addEdge(2, 3);   //C, D
@@ -50,12 +51,7 @@ public class PrettyGraph {
         matrix.addEdge(13, 21); //N, V
         matrix.addEdge(14, 22); //O, W
         matrix.addEdge(15, 23); //P, X
-        List<AdjacencyMatrix.Edge> edges = new ArrayList<>();
-        Iterator<AdjacencyMatrix.Edge> iter = matrix.getEdgeIterator();
-        while (iter.hasNext()) {
-            edges.add(iter.next());
-        }
-        this.edges = edges;
+        edges = matrix.getEdges();
     }
 
 }

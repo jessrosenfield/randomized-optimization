@@ -1,6 +1,5 @@
 import opt.EvaluationFunction;
 import shared.Instance;
-import AdjacencyMatrix.Edge;
 import util.linalg.Vector;
 
 import java.util.*;
@@ -21,7 +20,7 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
 
     public PrettyGraphsEvaluationFunction(PrettyGraph graph) {
         this.graph = graph;
-        numVertices = graph.matrix.rowCount();
+        numVertices = graph.numVertices;
     }
 
     @Override
@@ -51,8 +50,8 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
     double checkDistributedEdges() {
         double totalVariance = 0.0;
         for (int i = 0; i < solution.size(); i++) {
-            List<Double> angles = new ArrayList<>(graph.edges.size());
-            List<Double> angleDist = new ArrayList<>(graph.edges.size());
+            List<Double> angles = new ArrayList<>(graph.edges.length);
+            List<Double> angleDist = new ArrayList<>(graph.edges.length);
             List<Integer> neighbors = graph.matrix.getNeighbors(i);
             if (neighbors.size() > 1) {
                 for (int neighbor : neighbors) {
@@ -62,7 +61,7 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
                 }
                 angles.sort((a1, a2) -> Double.compare(a1, a2));
                 for (int a = angles.size() - 1; a > 0; a--) {
-                    angleDist.add(angles.get(i) - angles.get(i - 1));
+                    angleDist.add(angles.get(a) - angles.get(a - 1));
                 }
                 angleDist.add((2 * Math.PI) - (angles.get(angles.size() - 1) - angles.get(0)));
 
@@ -88,23 +87,30 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
     }
 
     private double edgeLength(int v1, int v2) {
-        return Math.sqrt(Math.pow(solution.get(v1).x - solution.get(v2).x, 2)
-                + Math.pow(solution.get(v1).y - solution.get(v2).y, 2));
+        double result = 0;
+        try {
+            result = Math.sqrt(Math.pow(solution.get(v1).x - solution.get(v2).x, 2)
+                    + Math.pow(solution.get(v1).y - solution.get(v2).y, 2));
+        } catch (IndexOutOfBoundsException e) {
+            int i = 0;
+            System.out.println(e);
+        }
+        return result;
     }
 
     private double edgeLengthScore(double diagonal) {
-        List<Double> lengthDiffs = new ArrayList<>(graph.edges.size());
-        for (Edge edge : graph.edges) {
+        List<Double> lengthDiffs = new ArrayList<>(graph.edges.length);
+        for (AdjacencyMatrix.Edge edge : graph.edges) {
             lengthDiffs.add(Math.abs(desiredDist - edgeLength(edge.v1, edge.v2)));
         }
-        double maxSumPossible = graph.edges.size() * Math.abs(desiredDist - diagonal);
+        double maxSumPossible = graph.edges.length * Math.abs(desiredDist - diagonal);
         double sum = lengthDiffs.stream().mapToDouble(Double::doubleValue).sum();
         return 1 - sum / maxSumPossible;
     }
 
     private double edgeLengthVariance(double diagonal) {
-        List<Double> edgeLengths = new ArrayList<>(graph.edges.size());
-        for (Edge edge : graph.edges) {
+        List<Double> edgeLengths = new ArrayList<>(graph.edges.length);
+        for (AdjacencyMatrix.Edge edge : graph.edges) {
             edgeLengths.add(edgeLength(edge.v1, edge.v2));
         }
         return 1 - getVariance(edgeLengths)/getVariance(Arrays.asList(0, diagonal));
@@ -120,20 +126,20 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
     }
 
     public double intersectionScore() {
-        Set<Edge> checkedEdges = new HashSet<>(graph.edges.size());
+        Set<AdjacencyMatrix.Edge> checkedEdges = new HashSet<>(graph.edges.length);
         int intersections = 0;
-        for (Edge edge : graph.edges) {
+        for (AdjacencyMatrix.Edge edge : graph.edges) {
             checkedEdges.add(edge);
-            for (Edge other : graph.edges) {
+            for (AdjacencyMatrix.Edge other : graph.edges) {
                 if (!checkedEdges.contains(other) && intersects(edge, other)) {
                     intersections++;
                 }
             }
         }
-        return 1 - intersections / (double) maxIntersections(graph.edges.size());
+        return 1 - intersections / (double) maxIntersections(graph.edges.length);
     }
 
-    public boolean intersects(Edge e1, Edge e2) {
+    public boolean intersects(AdjacencyMatrix.Edge e1, AdjacencyMatrix.Edge e2) {
         if (e1.v1 == e2.v1 || e1.v2 == e2.v2 || e1.v1== e2.v2 || e1.v2 == e2.v1) {
             return false;
         }

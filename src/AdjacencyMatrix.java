@@ -1,17 +1,22 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class AdjacencyMatrix {
-    private boolean[][] matrix;
+    protected boolean[][] matrix;
+    private Set<Edge> edges;
 
     public AdjacencyMatrix(int vertexCount) {
         matrix = new boolean[vertexCount][vertexCount];
+        edges = new HashSet<>();
+    }
+
+    public Edge[] getEdges() {
+        return edges.toArray(new Edge[] {});
     }
 
     public void addEdge(int i, int j) {
         matrix[i][j] = true;
         matrix[j][i] = true;
+        edges.add(new Edge(i, j));
     }
 
     public List<Integer> getNeighbors(int v) {
@@ -27,6 +32,7 @@ public class AdjacencyMatrix {
     public void removeEdge(int i, int j) {
         matrix[i][j] = false;
         matrix[j][i] = false;
+        edges.remove(new Edge(i, j));
     }
 
     public int rowCount() {
@@ -61,46 +67,5 @@ public class AdjacencyMatrix {
         public int hashCode() {
             return v1 * v2;
         }
-    }
-
-    public Iterator<Edge> getEdgeIterator() {
-        return new Iterator<Edge>() {
-            int i = 0;
-            int j = 0;
-
-            @Override
-            public boolean hasNext() {
-                if (j < matrix.length) {
-                    j += 1;
-                    if (matrix[i][j - 1]) {
-                        return true;
-                    } else {
-                        return hasNext();
-                    }
-                } else if (i < matrix.length - 1) {
-                    i += 1;
-                    j = i + 1;
-                    if (j < matrix.length) {
-                        j += 1;
-                        if (matrix[i][j  - 1]) {
-                            j -= 1;
-                            return true;
-                        } else {
-                            return hasNext();
-                        }
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            }
-
-            @Override
-            public Edge next() {
-                Edge next = new Edge(i, j);
-                return next;
-            }
-        };
     }
 }
