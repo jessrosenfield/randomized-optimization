@@ -1,11 +1,14 @@
-import AdjacencyMatrix;
-import util.linalg.Vector;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class PrettyGraph {
 
     protected AdjacencyMatrix matrix;
+    protected List<AdjacencyMatrix.Edge> edges;
 
-    public PrettyGraph(int numEdges) {
+    public PrettyGraph() {
+        int numEdges = 24;
         matrix = new AdjacencyMatrix(numEdges);
         matrix.addEdge(0, 1);   //A, B
         matrix.addEdge(1, 2);   //B, C
@@ -47,35 +50,12 @@ public class PrettyGraph {
         matrix.addEdge(13, 21); //N, V
         matrix.addEdge(14, 22); //O, W
         matrix.addEdge(15, 23); //P, X
-    }
-
-    public double[] getAreaScore(Vector coords) {
-        int i = 1;
-        double maxX = coords.get(0);
-        double maxY = coords.get(1);
-        double minX = maxX;
-        double minY = maxY;
-
-        while (i < coords.size()) {
-            double x = coords.get(i-1);
-            double y = coords.get(i);
-
-            if (x > maxX) maxX = x;
-            if (x < minX) minX = x;
-            if (y > maxY) maxY = y;
-            if (y < minY) minY = y;
-
-            i +=2;
+        List<AdjacencyMatrix.Edge> edges = new ArrayList<>();
+        Iterator<AdjacencyMatrix.Edge> iter = matrix.getEdgeIterator();
+        while (iter.hasNext()) {
+            edges.add(iter.next());
         }
-
-        double maxArea = (10 * (coords.size() / 2)) * (10 * (coords.size() / 2));
-        double areaScore = 1 - ((maxX-minX)*(maxY-minY)) / maxArea;
-        double diagonal = Math.sqrt(Math.pow((maxX-minX), 2) + Math.pow((maxY-minY), 2));
-        return new double[] {areaScore, diagonal};
-    }
-
-    public double getEdgeVariance(Vector coords, double diagonal) {
-        // TODO
+        this.edges = edges;
     }
 
 }
