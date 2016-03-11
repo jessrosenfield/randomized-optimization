@@ -39,9 +39,6 @@ public class PrettyGraphTest {
         trainingTime = end - start;
         trainingTime /= Math.pow(10,9);
         PrintWriter pw = new PrintWriter(System.out);
-        for (AdjacencyMatrix.Edge edge : graph.edges) {
-           pw.println(edge.v1 + ", " + edge.v2);
-        }
         pw.println("RHC: " + ef.value(rhc.getOptimal()) + " Time: " + trainingTime);
         pw.println(rhc.getOptimal());
 
