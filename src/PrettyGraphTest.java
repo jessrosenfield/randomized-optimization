@@ -14,15 +14,17 @@ import java.util.Arrays;
  */
 public class PrettyGraphTest {
     public static final int ITER = 10000;
+    private static final double TIME_FACTOR = Math.pow(10,9);
 
     public static void main(String[] args) {
         PrettyGraph graph = new PrettyGraph();
         PrettyGraphsEvaluationFunction ef = new PrettyGraphsEvaluationFunction(graph);
         Distribution dist = new PrettyGraphDistribution(ef.numVertices);
-        Distribution df = new DiscreteDependencyTree(.1);
-        // TODO: try with DiscreteChangeOne instead of Swap
-        NeighborFunction nf = new SwapNeighbor();
-        MutationFunction mf = new SwapMutation();
+        int[] ranges = new int[graph.numVertices * 2];
+        Arrays.fill(ranges, PrettyGraphDistribution.max);
+        Distribution df = new DiscreteDependencyTree(.1, ranges);
+        NeighborFunction nf = new DiscreteChangeOneNeighbor(ranges);
+        MutationFunction mf = new DiscreteChangeOneMutation(ranges);
         CrossoverFunction cf = new SingleCrossOver();
         HillClimbingProblem hcp = new GenericHillClimbingProblem(ef, dist, nf);
         GeneticAlgorithmProblem gap = new GenericGeneticAlgorithmProblem(ef, dist, mf, cf);
@@ -37,7 +39,7 @@ public class PrettyGraphTest {
         fit.train(start);
         end = System.nanoTime();
         trainingTime = end - start;
-        trainingTime /= Math.pow(10,9);
+        trainingTime /= TIME_FACTOR;
         PrintWriter pw = new PrintWriter(System.out);
         pw.println("RHC: " + ef.value(rhc.getOptimal()) + " Time: " + trainingTime);
         pw.println(rhc.getOptimal());
@@ -49,7 +51,7 @@ public class PrettyGraphTest {
         fit.train(start);
         end = System.nanoTime();
         trainingTime = end - start;
-        trainingTime /= Math.pow(10,9);
+        trainingTime /= TIME_FACTOR;
 
         pw.println("SA: " + ef.value(sa.getOptimal()) + " Time: " + trainingTime);
         pw.println(sa.getOptimal());
@@ -61,7 +63,7 @@ public class PrettyGraphTest {
         fit.train(start);
         end = System.nanoTime();
         trainingTime = end - start;
-        trainingTime /= Math.pow(10,9);
+        trainingTime /= TIME_FACTOR;
 
 
         pw.println("GA: " + ef.value(ga.getOptimal()) + " Time: " + trainingTime);
@@ -74,7 +76,7 @@ public class PrettyGraphTest {
         fit.train(start);
         end = System.nanoTime();
         trainingTime = end - start;
-        trainingTime /= Math.pow(10, 9);
+        trainingTime /= TIME_FACTOR;
 
         pw.println("MIMIC: " + ef.value(mimic.getOptimal()) + " Time: " + trainingTime);
         pw.println(mimic.getOptimal());

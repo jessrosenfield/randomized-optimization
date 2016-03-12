@@ -12,10 +12,11 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
     protected final double edgeDistM = 1.0;
     protected final double intersM = 1.7;
     protected final double edgeLenM = 0.3;
-//    protected double overlapM = 2.0;
+    protected double overlapM = 2.0;
     protected final int numVertices;
     protected final PrettyGraph graph;
-    protected final int desiredDist = 10;
+    protected static final int DESIRED_DIST = 10;
+    protected static final int GAP = 10;
     protected List<VertexLocation> solution;
 
     public PrettyGraphsEvaluationFunction(PrettyGraph graph) {
@@ -43,11 +44,12 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         double edgeDistScore = edgeDistM * checkDistributedEdges();
         double intersectScore = intersM * intersectionScore();
         double edgeLenScore = edgeLenM * edgeLengthScore(diagonal);
-        // TODO: overlap
-        return (areaScore + edgeVarScore + edgeDistScore + intersectScore + edgeLenScore) / (areaM + edgeVarM + edgeDistM + intersM + edgeLenM);
+        // TODO: finish overlap implementation
+        double overlapScore = overlapM * checkOverlappingPoints();
+        return (areaScore + edgeVarScore + edgeDistScore + intersectScore + edgeLenScore + overlapScore) / (areaM + edgeVarM + edgeDistM + intersM + edgeLenM + overlapM);
     }
 
-    double checkDistributedEdges() {
+    private double checkDistributedEdges() {
         double totalVariance = 0.0;
         for (int i = 0; i < solution.size(); i++) {
             List<Double> angles = new ArrayList<>(graph.edges.length);
@@ -71,14 +73,14 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         return 1.0 / (totalVariance + 1.0);
     }
 
-    double getMean(List<? extends Number> list) {
+    private double getMean(List<? extends Number> list) {
         double sum = 0.0;
         for(Number a : list)
             sum += a.doubleValue();
         return sum/list.size();
     }
 
-    double getVariance(List<? extends Number> list) {
+    private double getVariance(List<? extends Number> list) {
         double mean = getMean(list);
         double temp = 0;
         for(Number a : list)
@@ -101,9 +103,9 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
     private double edgeLengthScore(double diagonal) {
         List<Double> lengthDiffs = new ArrayList<>(graph.edges.length);
         for (AdjacencyMatrix.Edge edge : graph.edges) {
-            lengthDiffs.add(Math.abs(desiredDist - edgeLength(edge.v1, edge.v2)));
+            lengthDiffs.add(Math.abs(DESIRED_DIST - edgeLength(edge.v1, edge.v2)));
         }
-        double maxSumPossible = graph.edges.length * Math.abs(desiredDist - diagonal);
+        double maxSumPossible = graph.edges.length * Math.abs(DESIRED_DIST - diagonal);
         double sum = lengthDiffs.stream().mapToDouble(Double::doubleValue).sum();
         return 1 - sum / maxSumPossible;
     }
@@ -185,13 +187,10 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         VertexLocation a = solution.get(v1);
         VertexLocation b = solution.get(v2);
         VertexLocation c = solution.get(v3);
-        if ((b.x <= Math.max(a.x, c.x))
+        return ((b.x <= Math.max(a.x, c.x))
                 && (b.x >= Math.min(a.y, c.y))
                 && (b.y <= Math.max(a.y, c.y))
-                && (b.y >= Math.min(a.y, c.y))) {
-            return true;
-        }
-        return false;
+                && (b.y >= Math.min(a.y, c.y)));
     }
 
     public int maxIntersections(int i) {
@@ -199,5 +198,31 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
             return 0;
         }
         return i - 1 + maxIntersections(i - 1);
+    }
+
+    private double checkOverlappingPoints() {
+        double numFailures = 0;
+        for (int i = 0; i < numVertices; i++) {
+            for (int j = i + 1; j < numVertices; j++) {
+                int x = solution.get(i).x - solution.get(j).x;
+                int y = solution.get(i).y - solution.get(j).y;
+                double z = Math.sqrt(x * x + y * y;
+                if (z) < GAP) {
+                    double addScore = GAP / (z + 0.001);
+                    addScore = 1 - (1 / addScore);
+                    if (addScore > 0) {
+                        numFailures += 10 * addScore
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < numVertices; i++) {
+            for (AdjacencyMatrix.Edge edge : graph.edges) {
+                if (!(edge.v1 == i || edge.v2 == i)) {
+                    double dist = pointToLine(i, edge.v1, edge.v2)
+                }
+            }
+        }
     }
 }

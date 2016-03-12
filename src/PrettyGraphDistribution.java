@@ -9,7 +9,7 @@ import util.linalg.Vector;
  */
 public class PrettyGraphDistribution extends AbstractDistribution {
     private int vertexCount;
-    private final int max = 200;
+    public static final int max = 200;
 
     public PrettyGraphDistribution(int vertexCount) {
         this.vertexCount = vertexCount;
