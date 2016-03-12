@@ -1,4 +1,9 @@
-import java.util.*;
+package org.jrosenfield3;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class AdjacencyMatrix {
     protected boolean[][] matrix;
@@ -10,7 +15,7 @@ public class AdjacencyMatrix {
     }
 
     public Edge[] getEdges() {
-        return edges.toArray(new Edge[] {});
+        return edges.toArray(new Edge[]{});
     }
 
     public void addEdge(int i, int j) {

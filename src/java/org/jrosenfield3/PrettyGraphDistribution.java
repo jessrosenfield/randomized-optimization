@@ -1,3 +1,5 @@
+package org.jrosenfield3;
+
 import dist.AbstractDistribution;
 import shared.DataSet;
 import shared.Instance;
@@ -8,13 +10,13 @@ import util.linalg.Vector;
  * Created by Jessica on 3/10/2016.
  */
 public class PrettyGraphDistribution extends AbstractDistribution {
-    private int vertexCount;
     public static final int max = 500;
+    private int vertexCount;
     private double p;
 
     public PrettyGraphDistribution(int vertexCount) {
         this.vertexCount = vertexCount;
-        p = 1/Math.pow(max * max, vertexCount);
+        p = 1 / Math.pow(max * max, vertexCount);
     }
 
     public Instance sample(Instance ignored) {

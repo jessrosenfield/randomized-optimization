@@ -1,3 +1,5 @@
+package org.jrosenfield3;
+
 import dist.DiscreteDependencyTree;
 import dist.Distribution;
 import opt.*;
@@ -15,7 +17,7 @@ import java.util.Arrays;
 public class PrettyGraphTest {
     public static final int ITER1 = 200000;
     public static final int ITER2 = 2000;
-    private static final double TIME_FACTOR = Math.pow(10,9);
+    private static final double TIME_FACTOR = Math.pow(10, 9);
 
     public static void main(String[] args) {
         PrettyGraph graph = new PrettyGraph();

@@ -1,3 +1,5 @@
+package org.jrosenfield3;
+
 import opt.EvaluationFunction;
 import shared.Instance;
 import util.linalg.Vector;
@@ -7,16 +9,16 @@ import java.util.*;
 
 public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
 
+    protected static final int DESIRED_DIST = 10;
+    protected static final int GAP = 10;
     protected final double areaM = 0.2;
     protected final double edgeVarM = 0.7;
     protected final double edgeDistM = 1.0;
     protected final double intersM = 1.7;
     protected final double edgeLenM = 0.3;
-    protected double overlapM = 2.0;
     protected final int numVertices;
     protected final PrettyGraph graph;
-    protected static final int DESIRED_DIST = 10;
-    protected static final int GAP = 10;
+    protected double overlapM = 2.0;
     protected List<VertexLocation> solution;
 
     public PrettyGraphsEvaluationFunction(PrettyGraph graph) {
@@ -74,17 +76,17 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
 
     private double getMean(List<? extends Number> list) {
         double sum = 0.0;
-        for(Number a : list)
+        for (Number a : list)
             sum += a.doubleValue();
-        return sum/list.size();
+        return sum / list.size();
     }
 
     private double getVariance(List<? extends Number> list) {
         double mean = getMean(list);
         double temp = 0;
-        for(Number a : list)
-            temp += (mean-a.doubleValue())*(mean-a.doubleValue());
-        return temp/list.size();
+        for (Number a : list)
+            temp += (mean - a.doubleValue()) * (mean - a.doubleValue());
+        return temp / list.size();
     }
 
     private double edgeLength(int v1, int v2) {
@@ -107,7 +109,7 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         for (AdjacencyMatrix.Edge edge : graph.edges) {
             edgeLengths.add(edgeLength(edge.v1, edge.v2));
         }
-        return 1 - getVariance(edgeLengths)/getVariance(Arrays.asList(0, diagonal));
+        return 1 - getVariance(edgeLengths) / getVariance(Arrays.asList(0, diagonal));
     }
 
     public List<VertexLocation> getSolutionForGivenInstance(Instance d) {
@@ -134,7 +136,7 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
     }
 
     public boolean intersects(AdjacencyMatrix.Edge e1, AdjacencyMatrix.Edge e2) {
-        if (e1.v1 == e2.v1 || e1.v2 == e2.v2 || e1.v1== e2.v2 || e1.v2 == e2.v1) {
+        if (e1.v1 == e2.v1 || e1.v2 == e2.v2 || e1.v1 == e2.v2 || e1.v2 == e2.v1) {
             return false;
         }
 
@@ -158,8 +160,6 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
 
         return false;
     }
-
-    private enum Orientation {COLINEAR, CLOCKWISE, COUNTERCLOCKWISE}
 
     private Orientation orientation(int v1, int v2, int v3) {
         VertexLocation a = solution.get(v1);
@@ -234,20 +234,22 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         if (edgeLength == 0) {
             return 0;
         }
-        double edgeUnitX = (e.x - s.x)/edgeLength;
-        double edgeUnitY = (e.y - s.y)/edgeLength;
+        double edgeUnitX = (e.x - s.x) / edgeLength;
+        double edgeUnitY = (e.y - s.y) / edgeLength;
         int pointX = p.x - s.x;
         int pointY = p.y - s.y;
-        double pointUnitX = (p.x - s.x)/edgeLength;
-        double pointUnitY = (p.y - s.y)/edgeLength;
+        double pointUnitX = (p.x - s.x) / edgeLength;
+        double pointUnitY = (p.y - s.y) / edgeLength;
         double t = edgeUnitX * pointUnitX + edgeUnitY * pointUnitY;
         if (t < 0 || t > 1) {
             return 0;
         }
-        double nearestX = (e.x - s.x)/t;
-        double nearestY = (e.y - s.y)/t;
+        double nearestX = (e.x - s.x) / t;
+        double nearestY = (e.y - s.y) / t;
         return Math.sqrt(Math.pow(pointX - nearestX, 2) + Math.pow(pointY - nearestY, 2));
     }
+
+    private enum Orientation {COLINEAR, CLOCKWISE, COUNTERCLOCKWISE}
 
 
 }

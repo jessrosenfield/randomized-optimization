@@ -1,53 +1,44 @@
-import java.util.Random;
-
+package org.jrosenfield3;
 
 import dist.DiscreteDependencyTree;
 import dist.DiscretePermutationDistribution;
 import dist.Distribution;
-import opt.SwapNeighbor;
-import opt.GenericHillClimbingProblem;
-import opt.HillClimbingProblem;
-import opt.NeighborFunction;
-import opt.RandomizedHillClimbing;
-import opt.SimulatedAnnealing;
-import opt.ga.CrossoverFunction;
-import opt.ga.GenericGeneticAlgorithmProblem;
-import opt.ga.GeneticAlgorithmProblem;
-import opt.ga.MaxKColorFitnessFunction;
-import opt.ga.MutationFunction;
-import opt.ga.SingleCrossOver;
-import opt.ga.SwapMutation;
-import opt.ga.Vertex;
-import opt.ga.StandardGeneticAlgorithm;
+import opt.*;
+import opt.ga.*;
 import opt.prob.GenericProbabilisticOptimizationProblem;
 import opt.prob.MIMIC;
 import opt.prob.ProbabilisticOptimizationProblem;
 
+import java.util.Random;
+
 /**
- *
  * @author kmandal
  * @version 1.0
  */
 public class MaxKColoringTest {
-    /** The n value */
+    /**
+     * The n value
+     */
     private static final int N = 50; // number of vertices
-    private static final int L =4; // L adjacent nodes per vertex
+    private static final int L = 4; // L adjacent nodes per vertex
     private static final int K = 8; // K possible colors
+
     /**
      * The test main
+     *
      * @param args ignored
      */
     public static void main(String[] args) {
         System.out.println(N + ", " + L + ", " + K);
-        Random random = new Random(N*L);
+        Random random = new Random(N * L);
         // create the random velocity
         Vertex[] vertices = new Vertex[N];
         for (int i = 0; i < N; i++) {
             Vertex vertex = new Vertex();
             vertices[i] = vertex;
             vertex.setAdjMatrixSize(L);
-            for(int j = 0; j <L; j++ ){
-                vertex.getAadjacencyColorMatrix().add(random.nextInt(N*L));
+            for (int j = 0; j < L; j++) {
+                vertex.getAadjacencyColorMatrix().add(random.nextInt(N * L));
             }
         }
         /*for (int i = 0; i < N; i++) {
@@ -73,7 +64,7 @@ public class MaxKColoringTest {
         fit.train();
         System.out.println("RHC: " + ef.value(rhc.getOptimal()));
         System.out.println(ef.foundConflict());
-        System.out.println("Time : "+ (System.currentTimeMillis() - starttime));
+        System.out.println("Time : " + (System.currentTimeMillis() - starttime));
 
         System.out.println("---SA---");
         starttime = System.currentTimeMillis();
@@ -82,7 +73,7 @@ public class MaxKColoringTest {
         fit.train();
         System.out.println("SA: " + ef.value(sa.getOptimal()));
         System.out.println(ef.foundConflict());
-        System.out.println("Time : "+ (System.currentTimeMillis() - starttime));
+        System.out.println("Time : " + (System.currentTimeMillis() - starttime));
 
         System.out.println("---GA---");
         starttime = System.currentTimeMillis();
@@ -91,7 +82,7 @@ public class MaxKColoringTest {
         fit.train();
         System.out.println("GA: " + ef.value(ga.getOptimal()));
         System.out.println(ef.foundConflict());
-        System.out.println("Time : "+ (System.currentTimeMillis() - starttime));
+        System.out.println("Time : " + (System.currentTimeMillis() - starttime));
 
         System.out.println("---MIMIC---");
         starttime = System.currentTimeMillis();
@@ -100,7 +91,7 @@ public class MaxKColoringTest {
         fit.train();
         System.out.println("MIMIC: " + ef.value(mimic.getOptimal()));
         System.out.println(ef.foundConflict());
-        System.out.println("Time : "+ (System.currentTimeMillis() - starttime));
+        System.out.println("Time : " + (System.currentTimeMillis() - starttime));
 
     }
 }

@@ -1,3 +1,5 @@
+package org.jrosenfield3;
+
 import java.util.List;
 
 public abstract class EvaluationFunction {

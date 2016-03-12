@@ -1,12 +1,22 @@
-import opt.*;
-import opt.example.*;
-import opt.ga.*;
-import shared.*;
-import func.nn.backprop.*;
+package org.jrosenfield3;
 
-import java.util.*;
-import java.io.*;
-import java.text.*;
+import func.nn.backprop.BackPropagationNetwork;
+import func.nn.backprop.BackPropagationNetworkFactory;
+import opt.OptimizationAlgorithm;
+import opt.RandomizedHillClimbing;
+import opt.SimulatedAnnealing;
+import opt.example.NeuralNetworkOptimizationProblem;
+import opt.ga.StandardGeneticAlgorithm;
+import shared.DataSet;
+import shared.ErrorMeasure;
+import shared.Instance;
+import shared.SumOfSquaresError;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 /**
  * Implementation of randomized hill climbing, simulated annealing, and genetic algorithm to
@@ -36,9 +46,9 @@ public class VowelTest {
     private static DecimalFormat df = new DecimalFormat("0.000");
 
     public static void main(String[] args) {
-        for(int i = 0; i < oa.length; i++) {
+        for (int i = 0; i < oa.length; i++) {
             networks[i] = factory.createClassificationNetwork(
-                    new int[] {inputLayer, hiddenLayer, outputLayer});
+                    new int[]{inputLayer, hiddenLayer, outputLayer});
             nnop[i] = new NeuralNetworkOptimizationProblem(set, networks[i], measure);
         }
 
@@ -46,26 +56,26 @@ public class VowelTest {
         oa[1] = new SimulatedAnnealing(1E11, .95, nnop[1]);
         oa[2] = new StandardGeneticAlgorithm(200, 100, 10, nnop[2]);
 
-        for(int i = 0; i < oa.length; i++) {
+        for (int i = 0; i < oa.length; i++) {
             double start = System.nanoTime(), end, trainingTime, testingTime, correct = 0, incorrect = 0;
             train(oa[i], networks[i], oaNames[i]); //trainer.train();
             end = System.nanoTime();
             trainingTime = end - start;
-            trainingTime /= Math.pow(10,9);
+            trainingTime /= Math.pow(10, 9);
 
             Instance optimalInstance = oa[i].getOptimal();
             networks[i].setWeights(optimalInstance.getData());
 
             double predicted, actual;
             start = System.nanoTime();
-            for(int j = 0; j < testing.length; j++) {
+            for (int j = 0; j < testing.length; j++) {
                 networks[i].setInputValues(testing[j].getData());
                 networks[i].run();
 
                 predicted = Double.parseDouble(testing[j].getLabel().toString());
                 actual = Double.parseDouble(networks[i].getOutputValues().toString());
 
-                if (Math.abs(predicted - actual) < 0.5 ) {
+                if (Math.abs(predicted - actual) < 0.5) {
                     correct++;
                 } else {
                     incorrect++;
@@ -74,11 +84,11 @@ public class VowelTest {
             }
             end = System.nanoTime();
             testingTime = end - start;
-            testingTime /= Math.pow(10,9);
+            testingTime /= Math.pow(10, 9);
 
-            results +=  "\nResults for " + oaNames[i] + ": \nCorrectly classified " + correct + " instances." +
+            results += "\nResults for " + oaNames[i] + ": \nCorrectly classified " + correct + " instances." +
                     "\nIncorrectly classified " + incorrect + " instances.\nPercent correctly classified: "
-                    + df.format(correct/(correct+incorrect)*100) + "%\nTraining time: " + df.format(trainingTime)
+                    + df.format(correct / (correct + incorrect) * 100) + "%\nTraining time: " + df.format(trainingTime)
                     + " seconds\nTesting time: " + df.format(testingTime) + " seconds\n";
         }
 
@@ -88,11 +98,11 @@ public class VowelTest {
     private static void train(OptimizationAlgorithm oa, BackPropagationNetwork network, String oaName) {
         System.out.println("\nError results for " + oaName + "\n---------------------------");
         double start = System.nanoTime();
-        for(int i = 0; i < trainingIterations; i++) {
+        for (int i = 0; i < trainingIterations; i++) {
             oa.train();
 
             double error = 0;
-            for(int j = 0; j < testing.length; j++) {
+            for (int j = 0; j < testing.length; j++) {
                 network.setInputValues(testing[j].getData());
                 network.run();
 
@@ -100,11 +110,11 @@ public class VowelTest {
                 example.setLabel(new Instance(Double.parseDouble(network.getOutputValues().toString())));
                 error += (Math.abs(Double.parseDouble(output.toString()) - Double.parseDouble(example.getLabel().toString())) < .5) ? 0 : 1;
             }
-            if (error/testing.length*100 < 10) {
+            if (error / testing.length * 100 < 10) {
                 double end = System.nanoTime();
                 double totalTime = end - start;
-                totalTime /= Math.pow(10,9);
-                System.out.println(i + ", " + error/testing.length*100 + ", " + totalTime + " sec");
+                totalTime /= Math.pow(10, 9);
+                System.out.println(i + ", " + error / testing.length * 100 + ", " + totalTime + " sec");
                 return;
             }
         }
@@ -118,7 +128,7 @@ public class VowelTest {
             BufferedReader br = new BufferedReader(new FileReader(new File(filename)));
             br.readLine();
 
-            for(int i = 0; i < attributes.length; i++) {
+            for (int i = 0; i < attributes.length; i++) {
                 Scanner scan = new Scanner(br.readLine());
                 scan.useDelimiter(",");
 
@@ -127,18 +137,17 @@ public class VowelTest {
                 attributes[i][1] = new double[1];
                 scan.next();
                 attributes[i][1][0] = Double.parseDouble(scan.next());
-                for(int j = 0; j < attributes[i][0].length; j++)
+                for (int j = 0; j < attributes[i][0].length; j++)
                     attributes[i][0][j] = Double.parseDouble(scan.next());
 
             }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         Instance[] instances = new Instance[attributes.length];
 
-        for(int i = 0; i < instances.length; i++) {
+        for (int i = 0; i < instances.length; i++) {
             instances[i] = new Instance(attributes[i][0]);
             // binary classification of single vowel 'i' from "heed"
             instances[i].setLabel(new Instance(attributes[i][1][0] == 1 ? 1 : 0));

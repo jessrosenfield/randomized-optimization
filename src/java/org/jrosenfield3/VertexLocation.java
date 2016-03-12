@@ -1,3 +1,5 @@
+package org.jrosenfield3;
+
 public class VertexLocation {
     public int x;
     public int y;
