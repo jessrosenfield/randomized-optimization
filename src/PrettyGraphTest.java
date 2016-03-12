@@ -13,7 +13,8 @@ import java.util.Arrays;
  * Created by Jessica on 3/10/2016.
  */
 public class PrettyGraphTest {
-    public static final int ITER = 10000;
+    public static final int ITER1 = 200000;
+    public static final int ITER2 = 2000;
     private static final double TIME_FACTOR = Math.pow(10,9);
 
     public static void main(String[] args) {
@@ -34,7 +35,7 @@ public class PrettyGraphTest {
 
         System.out.println("---RHC---");
         RandomizedHillClimbing rhc = new RandomizedHillClimbing(hcp);
-        FixedIterationTrainerMod fit = new FixedIterationTrainerMod(rhc, ITER);
+        FixedIterationTrainerMod fit = new FixedIterationTrainerMod(rhc, ITER1);
         start = System.nanoTime();
         fit.train(start);
         end = System.nanoTime();
@@ -45,8 +46,8 @@ public class PrettyGraphTest {
         pw.println(rhc.getOptimal());
 
         System.out.println("---SA---");
-        SimulatedAnnealing sa = new SimulatedAnnealing(1E11, .95, hcp);
-        fit = new FixedIterationTrainerMod(sa, ITER);
+        SimulatedAnnealing sa = new SimulatedAnnealing(1E11, .9995, hcp);
+        fit = new FixedIterationTrainerMod(sa, ITER1);
         start = System.nanoTime();
         fit.train(start);
         end = System.nanoTime();
@@ -57,8 +58,8 @@ public class PrettyGraphTest {
         pw.println(sa.getOptimal());
 
         System.out.println("---GA---");
-        StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 100, 10, gap);
-        fit = new FixedIterationTrainerMod(ga, ITER);
+        StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 100, 20, gap);
+        fit = new FixedIterationTrainerMod(ga, ITER2);
         start = System.nanoTime();
         fit.train(start);
         end = System.nanoTime();
@@ -71,7 +72,7 @@ public class PrettyGraphTest {
 
         System.out.println("---MIMIC---");
         MIMIC mimic = new MIMIC(24, 20, pop);
-        fit = new FixedIterationTrainerMod(mimic, ITER);
+        fit = new FixedIterationTrainerMod(mimic, ITER2);
         start = System.nanoTime();
         fit.train(start);
         end = System.nanoTime();

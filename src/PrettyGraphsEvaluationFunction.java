@@ -44,7 +44,6 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         double edgeDistScore = edgeDistM * checkDistributedEdges();
         double intersectScore = intersM * intersectionScore();
         double edgeLenScore = edgeLenM * edgeLengthScore(diagonal);
-        // TODO: finish overlap implementation
         double overlapScore = overlapM * checkOverlappingPoints();
         return (areaScore + edgeVarScore + edgeDistScore + intersectScore + edgeLenScore + overlapScore) / (areaM + edgeVarM + edgeDistM + intersM + edgeLenM + overlapM);
     }
@@ -89,15 +88,8 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
     }
 
     private double edgeLength(int v1, int v2) {
-        double result = 0;
-        try {
-            result = Math.sqrt(Math.pow(solution.get(v1).x - solution.get(v2).x, 2)
-                    + Math.pow(solution.get(v1).y - solution.get(v2).y, 2));
-        } catch (IndexOutOfBoundsException e) {
-            int i = 0;
-            System.out.println(e);
-        }
-        return result;
+        return Math.sqrt(Math.pow(solution.get(v1).x - solution.get(v2).x, 2)
+                + Math.pow(solution.get(v1).y - solution.get(v2).y, 2));
     }
 
     private double edgeLengthScore(double diagonal) {
@@ -204,14 +196,12 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         double numFailures = 0;
         for (int i = 0; i < numVertices; i++) {
             for (int j = i + 1; j < numVertices; j++) {
-                int x = solution.get(i).x - solution.get(j).x;
-                int y = solution.get(i).y - solution.get(j).y;
-                double z = Math.sqrt(x * x + y * y;
-                if (z) < GAP) {
-                    double addScore = GAP / (z + 0.001);
+                double len = edgeLength(i, j);
+                if (len < GAP) {
+                    double addScore = GAP / (len + 0.001);
                     addScore = 1 - (1 / addScore);
                     if (addScore > 0) {
-                        numFailures += 10 * addScore
+                        numFailures += 10 * addScore;
                     }
                 }
             }
@@ -220,9 +210,44 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         for (int i = 0; i < numVertices; i++) {
             for (AdjacencyMatrix.Edge edge : graph.edges) {
                 if (!(edge.v1 == i || edge.v2 == i)) {
-                    double dist = pointToLine(i, edge.v1, edge.v2)
+                    double dist = pointToLine(i, edge.v1, edge.v2);
+                    if (dist > 0 && dist < GAP) {
+                        double addScore = GAP / (dist + 0.001);
+                        addScore = 1 - (1 / addScore);
+                        if (addScore > 0) {
+                            numFailures += 10 * addScore;
+                        }
+                    }
                 }
             }
         }
+        int n = numVertices + graph.edges.length;
+        double rawScore = 1 - ((numFailures * 2) / (10 * n * (n - 1) / 2));
+        return Math.pow(rawScore, 5);
     }
+
+    public double pointToLine(int point, int start, int end) {
+        VertexLocation p = solution.get(point);
+        VertexLocation s = solution.get(start);
+        VertexLocation e = solution.get(end);
+        double edgeLength = edgeLength(start, end);
+        if (edgeLength == 0) {
+            return 0;
+        }
+        double edgeUnitX = (e.x - s.x)/edgeLength;
+        double edgeUnitY = (e.y - s.y)/edgeLength;
+        int pointX = p.x - s.x;
+        int pointY = p.y - s.y;
+        double pointUnitX = (p.x - s.x)/edgeLength;
+        double pointUnitY = (p.y - s.y)/edgeLength;
+        double t = edgeUnitX * pointUnitX + edgeUnitY * pointUnitY;
+        if (t < 0 || t > 1) {
+            return 0;
+        }
+        double nearestX = (e.x - s.x)/t;
+        double nearestY = (e.y - s.y)/t;
+        return Math.sqrt(Math.pow(pointX - nearestX, 2) + Math.pow(pointY - nearestY, 2));
+    }
+
+
 }

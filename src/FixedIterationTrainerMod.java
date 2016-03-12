@@ -40,11 +40,15 @@ public class FixedIterationTrainerMod implements Trainer {
         PrintWriter pw = new PrintWriter(System.out);
         for (int i = 0; i < iterations; i++) {
             double fitness = trainer.train();
-            if (i % 10 == 0) {
+            if (i < 100 || i % 100 == 0) {
                 end = System.nanoTime();
                 trainingTime = end - start;
                 trainingTime /= Math.pow(10,9);
                 pw.println(i + ", " + trainingTime + ", " + fitness);
+            }
+            if (fitness == -1) {
+                pw.flush();
+                return sum / i;
             }
             sum += fitness;
         }
