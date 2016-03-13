@@ -1,6 +1,7 @@
 package org.jrosenfield3;
 
 import dist.DiscreteDependencyTree;
+import dist.DiscreteUniformDistribution;
 import dist.Distribution;
 import opt.*;
 import opt.ga.*;
@@ -16,15 +17,15 @@ import java.util.Arrays;
  */
 public class PrettyGraphTest {
     public static final int ITER1 = 200000;
-    public static final int ITER2 = 2000;
+    public static final int ITER2 = 1000;
     private static final double TIME_FACTOR = Math.pow(10, 9);
 
     public static void main(String[] args) {
         PrettyGraph graph = new PrettyGraph();
         PrettyGraphsEvaluationFunction ef = new PrettyGraphsEvaluationFunction(graph);
-        Distribution dist = new PrettyGraphDistribution(ef.numVertices);
         int[] ranges = new int[graph.numVertices * 2];
-        Arrays.fill(ranges, PrettyGraphDistribution.max);
+        Arrays.fill(ranges, graph.max);
+        Distribution dist = new DiscreteUniformDistribution(ranges);
         Distribution df = new DiscreteDependencyTree(.1, ranges);
         NeighborFunction nf = new DiscreteChangeOneNeighbor(ranges);
         MutationFunction mf = new DiscreteChangeOneMutation(ranges);
@@ -60,8 +61,8 @@ public class PrettyGraphTest {
         pw.println(sa.getOptimal());
 
         System.out.println("---GA---");
-        StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 100, 20, gap);
-        fit = new FixedIterationTrainerMod(ga, ITER2);
+        StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 100, 25, gap);
+        fit = new FixedIterationTrainerMod(ga, ITER2 * 3);
         start = System.nanoTime();
         fit.train(start);
         end = System.nanoTime();
@@ -73,7 +74,7 @@ public class PrettyGraphTest {
         pw.println(ga.getOptimal());
 
         System.out.println("---MIMIC---");
-        MIMIC mimic = new MIMIC(24, 20, pop);
+        MIMIC mimic = new MIMIC(200, 100, pop);
         fit = new FixedIterationTrainerMod(mimic, ITER2);
         start = System.nanoTime();
         fit.train(start);

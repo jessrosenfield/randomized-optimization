@@ -1,6 +1,7 @@
 *.class
 *.pyc
 **/env/
+**/res/ABAGAIL/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

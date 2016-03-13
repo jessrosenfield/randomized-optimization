@@ -12,7 +12,7 @@ import opt.prob.ProbabilisticOptimizationProblem;
 import java.util.Random;
 
 /**
- * @author kmandal
+ * @author Jessica Rosenfield modified from kmandal
  * @version 1.0
  */
 public class MaxKColoringTest {

@@ -5,9 +5,11 @@ public class PrettyGraph {
     protected AdjacencyMatrix matrix;
     protected AdjacencyMatrix.Edge[] edges;
     protected int numVertices;
+    protected int max;
 
     public PrettyGraph() {
         numVertices = 24;
+        max = 500;
         matrix = new AdjacencyMatrix(numVertices);
         matrix.addEdge(0, 1);   //A, B
         matrix.addEdge(1, 2);   //B, C
