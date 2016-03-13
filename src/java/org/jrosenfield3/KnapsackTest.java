@@ -85,6 +85,7 @@ public class KnapsackTest {
         double trainingTime = end - start;
         trainingTime /= TIME_FACTOR;
         pw.println("RHC: " + ef.value(rhc.getOptimal()) + " Time: " + trainingTime);
+        pw.println(rhc.getOptimal());
 
         System.out.println("---SA---");
         SimulatedAnnealing sa = new SimulatedAnnealing(100, .95, hcp);
@@ -95,6 +96,7 @@ public class KnapsackTest {
         trainingTime = end - start;
         trainingTime /= TIME_FACTOR;
         pw.println("SA: " + ef.value(sa.getOptimal()) + " Time: " + trainingTime);
+        pw.println(sa.getOptimal());
 
         System.out.println("---GA---");
         StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 150, 25, gap);
@@ -104,7 +106,8 @@ public class KnapsackTest {
         end = System.nanoTime();
         trainingTime = end - start;
         trainingTime /= TIME_FACTOR;
-        pw.println("SA: " + ef.value(ga.getOptimal()) + " Time: " + trainingTime);
+        pw.println("GA: " + ef.value(ga.getOptimal()) + " Time: " + trainingTime);
+        pw.println(ga.getOptimal());
 
         System.out.println("---MIMIC---");
         MIMIC mimic = new MIMIC(200, 100, pop);
@@ -115,6 +118,7 @@ public class KnapsackTest {
         trainingTime = end - start;
         trainingTime /= TIME_FACTOR;
         pw.println("MIMIC: " + ef.value(mimic.getOptimal()) + " Time: " + trainingTime);
+        pw.println(mimic.getOptimal());
 
         pw.flush();
     }

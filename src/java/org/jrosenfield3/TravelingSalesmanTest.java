@@ -68,6 +68,7 @@ public class TravelingSalesmanTest {
         double trainingTime = end - start;
         trainingTime /= TIME_FACTOR;
         pw.println("RHC: " + ef.value(rhc.getOptimal()) + " Time: " + trainingTime);
+        pw.println(rhc.getOptimal());
 
         System.out.println("---SA---");
         SimulatedAnnealing sa = new SimulatedAnnealing(1E12, .95, hcp);
@@ -78,6 +79,7 @@ public class TravelingSalesmanTest {
         trainingTime = end - start;
         trainingTime /= TIME_FACTOR;
         pw.println("SA: " + ef.value(sa.getOptimal()) + " Time: " + trainingTime);
+        pw.println(sa.getOptimal());
 
         System.out.println("---GA---");
         StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 150, 20, gap);
@@ -88,6 +90,7 @@ public class TravelingSalesmanTest {
         trainingTime = end - start;
         trainingTime /= TIME_FACTOR;
         pw.println("GA: " + ef.value(ga.getOptimal()) + " Time: " + trainingTime);
+        pw.println(ga.getOptimal());
 
         // for mimic we use a sort encoding
         System.out.println("---MIMIC---");
@@ -104,7 +107,9 @@ public class TravelingSalesmanTest {
         end = System.nanoTime();
         trainingTime = end - start;
         trainingTime /= TIME_FACTOR;
-        pw.println("SA: " + ef.value(sa.getOptimal()) + " Time: " + trainingTime);
+        pw.println("MIMIC: " + ef.value(mimic.getOptimal()) + " Time: " + trainingTime);
+        pw.println(mimic.getOptimal());
 
+        pw.flush();
     }
 }
