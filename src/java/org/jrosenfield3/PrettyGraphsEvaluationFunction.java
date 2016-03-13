@@ -37,17 +37,17 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         int xMax = solution.stream().max((v1, v2) -> Integer.compare(v1.x, v2.x)).get().x;
         int yMin = solution.stream().min((v1, v2) -> Integer.compare(v1.y, v2.y)).get().y;
         int yMax = solution.stream().max((v1, v2) -> Integer.compare(v1.y, v2.y)).get().y;
+        double areaScore = 1 - 1.0 * ((xMax - xMin) * (yMax - yMin)) / Math.pow(GAP * numVertices, 2);
+        double diagonal = Math.sqrt(2 * Math.pow(graph.max, 2));
 
-        double areaScore = 1 - 1.0 * ((xMax - xMin) * (yMax - yMin)) / Math.pow(10 * numVertices, 2);
-        double diagonal = Math.sqrt(Math.pow(xMax - xMin, 2) + Math.pow(yMax - yMin, 2));
-
-        areaScore *= areaM;
+        areaScore = areaM * areaScore > 0 ? areaScore : 0;
         double edgeVarScore = edgeVarM * edgeLengthVariance(diagonal);
         double edgeDistScore = edgeDistM * checkDistributedEdges();
         double intersectScore = intersM * intersectionScore();
         double edgeLenScore = edgeLenM * edgeLengthScore(diagonal);
         double overlapScore = overlapM * checkOverlappingPoints();
-        return (areaScore + edgeVarScore + edgeDistScore + intersectScore + edgeLenScore + overlapScore) / (areaM + edgeVarM + edgeDistM + intersM + edgeLenM + overlapM);
+        return (areaScore + edgeVarScore + edgeDistScore + intersectScore + edgeLenScore + overlapScore)
+                / (areaM + edgeVarM + edgeDistM + intersM + edgeLenM + overlapM);
     }
 
     private double checkDistributedEdges() {
@@ -62,7 +62,7 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
                     int y = solution.get(neighbor).y - solution.get(i).y;
                     angles.add(Math.atan2(y, x));
                 }
-                angles.sort((a1, a2) -> Double.compare(a1, a2));
+                angles.sort(Double::compare);
                 for (int a = angles.size() - 1; a > 0; a--) {
                     angleDist.add(angles.get(a) - angles.get(a - 1));
                 }
@@ -146,19 +146,15 @@ public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
         Orientation o4 = orientation(e2.v1, e2.v2, e1.v2);
 
         // General case
-        if (o1.equals(o2) && o3.equals(o4)) {
+        if (!o1.equals(o2) && !o3.equals(o4)) {
             return true;
         }
 
         // Colinear overlapping
-        if ((o1.equals(Orientation.COLINEAR) && onSegment(e1.v1, e1.v1, e2.v1))
+        return ((o1.equals(Orientation.COLINEAR) && onSegment(e1.v1, e1.v1, e2.v1))
                 || (o2.equals(Orientation.COLINEAR) && onSegment(e1.v1, e1.v2, e2.v2))
-                || (o2.equals(Orientation.COLINEAR) && onSegment(e2.v1, e2.v2, e1.v1))
-                || (o2.equals(Orientation.COLINEAR) && onSegment(e2.v1, e2.v2, e1.v2))) {
-            return true;
-        }
-
-        return false;
+                || (o3.equals(Orientation.COLINEAR) && onSegment(e2.v1, e2.v2, e1.v1))
+                || (o4.equals(Orientation.COLINEAR) && onSegment(e2.v1, e2.v2, e1.v2)));
     }
 
     private Orientation orientation(int v1, int v2, int v3) {
