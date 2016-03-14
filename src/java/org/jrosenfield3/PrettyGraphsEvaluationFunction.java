@@ -10,7 +10,7 @@ import java.util.*;
 public class PrettyGraphsEvaluationFunction implements EvaluationFunction {
 
     protected static final int DESIRED_DIST = 10;
-    protected static final int GAP = 10;
+    protected static final int GAP = 90;
     protected final double areaM = 0.2;
     protected final double edgeVarM = 0.7;
     protected final double edgeDistM = 1.0;
